@@ -14,4 +14,5 @@ h1 {
 .navbar-brand {
     line-height: 30px;
     font-size: 22px;
+    margin: -8px;
 }
