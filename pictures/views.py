@@ -1,9 +1,10 @@
+from django.shortcuts import render
 from django.http  import HttpResponse,Http404
 import datetime as dt
 
-# Create your views here.
+# Create views here.
 def welcome(request):
-    return HttpResponse('Welcome to Picha a web application that allows the users to post and interact with diffrent kinds of pictures')
+    return HttpResponse(request, 'welcome.html')
 
 def photo_of_day(request):
     date = dt.date.today()
