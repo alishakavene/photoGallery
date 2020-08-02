@@ -11,7 +11,7 @@ h1 {
     color: white;
 }
 
-.navbar-brand logo {
-    line-height: 2px;
-    size: 18px;
+.navbar-brand {
+    line-height: 30px;
+    font-size: 22px;
 }
