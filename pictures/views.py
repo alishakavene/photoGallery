@@ -48,6 +48,6 @@ def past_days_photo(request, past_date):
 
     return render(request, 'photogallery/past-photos.html', {"date": date})
     
-def photo_of_day(request):
+def photo_today(request):
     date = dt.date.today()
     return render(request, 'photogallery/today-photos.html', {"date": date,})
