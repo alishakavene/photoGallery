@@ -1,0 +1,17 @@
+h1 {
+    color: black;
+}
+
+.navbar-inverse {
+    background-color: #5e0846;
+    border: #5e0846;
+}
+
+.navbar-header {
+    color: white;
+}
+
+.navbar-brand logo {
+    line-height: 2px;
+    size: 18px;
+}
