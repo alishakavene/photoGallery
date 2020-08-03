@@ -85,6 +85,11 @@ class category(models.Model):
             k = k.parent
         return ' -> '.join(full_path[::-1])
 
+class ModelAdmin(models.Model):
+    ...
+    class Clipboard:
+        js = ('clipboard.js',) 
+
 
     
     

@@ -5,9 +5,11 @@
 <head>
     <meta charset="utf-8"> {% if title %}
     <title>Picha - {{title}}</title>
+    <script src="{% static 'clipboard.js' %}"></script>
     {% else %}
     <title> Picha </title>
     {% endif %} {% block styles %} {% bootstrap_css %}
+    <link rel="icon" href=" https://www.freelogodesign.org/file/app/client/thumb/4a9a0cc4-0357-4d82-aa4b-e65540703925_200x200.png?1596383019642 " type="img/png">
     <link rel="stylesheet" href="{% static 'css/basephotos.css' %}"> {% endblock %}
 
 </head>
