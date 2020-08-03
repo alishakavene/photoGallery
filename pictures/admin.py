@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Name,Image,tags
+from .models import Name,Image,tags,category
 
 class ArticleAdmin(admin.ModelAdmin):
     filter_horizontal =('tags',)
@@ -8,3 +8,4 @@ class ArticleAdmin(admin.ModelAdmin):
 admin.site.register(Name)
 admin.site.register(Image)
 admin.site.register(tags)
+admin.site.register(category)
