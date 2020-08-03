@@ -5,6 +5,12 @@ h1 {
 .navbar-inverse {
     background-color: #5e0846;
     border: #5e0846;
+    padding: 1rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    box-shadow: 2px black;
+    height: 32px;
 }
 
 .navbar-header {
@@ -14,5 +20,31 @@ h1 {
 .navbar-brand {
     line-height: 30px;
     font-size: 22px;
-    margin: -8px;
+    margin: -14px;
 }
+
+.navbar-form {
+    margin: -2px;
+    background-color: #5e0846;
+}
+
+.form-control {
+    background-color: transparent;
+    border: none;
+}
+
+.input-group-btn {
+    background-color: transparent;
+}
+
+.btn-default {
+    background-color: transparent;
+    border: none;
+    color: darkgray;
+}
+
+a {
+    color: #5e0846;
+}
+
+h2 {}
