@@ -1,1 +1,38 @@
-{%extends 'photogallery/base.html'%} {% block content %} {{block.super}} {% endblock %}
+{%extends 'photogallery/base.html'%} {% block content %} {{block.super}}
+
+<div class="container">
+
+    <!-- Looping through photo   -->
+    {% for photo_item in photo %}
+
+    <div class="row">
+        <!-- displaying photos -->
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <h2 class="text-center"> {{ photo_item.title }} </h2>
+        </div>
+
+    </div>
+
+    {% empty %}
+    <div class="row">
+        <h2 class="text-center">There are No Photos to display Go to Admin to post</h2>
+    </div>
+    {% endfor %} {% for photo_item in photo %}
+
+    <div class="card-group">
+        <div class="card">
+            <img src="{{photo_item.image_image.url}}" class="img-responsive" alt="Image">
+            <div class="card-body">
+                <h5 class="card-title">{{ photo_item.title }}</h5>
+                <p class="card-text">{{ photo_item.description}}</p>
+                <p class="card-text"><small class="text-muted">{{ photo_item.post_date}}</small></p>
+            </div>
+        </div>
+
+    </div>
+    {% endfor %}
+
+
+</div>
+
+{% endblock %}
