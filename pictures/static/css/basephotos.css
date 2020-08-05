@@ -15,6 +15,7 @@ h1 {
     z-index: 1;
     box-shadow: 2px black;
     height: 32px;
+    border-radius: 0%;
 }
 
 .navbar-header {
@@ -52,9 +53,9 @@ a {
 }
 
 .copybutton {
-    background-color: #5e0846;
+    background-color: transparent;
     border: none;
-    color: white;
+    color: #5e0846;
     margin-bottom: 5px;
     border-radius: 3px;
 }
@@ -73,8 +74,9 @@ a {
     text-align: center;
 }
 
-
-/* Zoom In #1 */
+.image-hover {
+    border-radius: 5px;
+}
 
 .image-hover {
     -webkit-transform: scale(1);
