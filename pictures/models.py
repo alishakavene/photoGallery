@@ -1,16 +1,6 @@
 from django.db import models
 import datetime as dt
 
-@classmethod
-def todays_photo(cls):
-        today = dt.date.today()
-        photo = cls.objects.filter(post_date__date = today)
-        return photo
-@classmethod
-def days_photo(cls,date):
-        photo = cls.objects.filter(post_date__date = date)
-        return photo
-
 
 # Create your models here.
 class Name(models.Model):
@@ -42,11 +32,11 @@ class Image(models.Model):
     @classmethod
     def todays_photo(cls):
         today = dt.date.today()
-        photo = cls.objects.filter(post_date__date = today)
+        photo = cls.objects.order_by('-post_date')
         return photo
     @classmethod
     def days_photo(cls,date):
-        photo = cls.objects.filter(post_date__date =date)
+        photo = cls.objects.filter(post_date__date = date)
         return photo
 
 
