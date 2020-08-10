@@ -3,7 +3,7 @@
     {% for photo_item in photo %}
     <li style="display: inline-block; padding-left:22px;">
         <div class="card">
-            <img class="image-hover" src="{{photo_item.image_image.url}}" class="img-responsive" alt="Image" style="height:250px; width:350px;">
+            <img class="image-hover" src="{{photo_item.pictures_image.url}}" class="img-responsive" alt="Image" style="height:250px; width:350px;">
             <div class="card-body">
                 <h5 class="card-title">{{ photo_item.title }}</h5>
                 <p class="card-text">{{ photo_item.description}}</p>

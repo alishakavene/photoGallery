@@ -25,7 +25,7 @@ class Image(models.Model):
     name = models.ForeignKey(Name,on_delete=models.CASCADE)
     tags = models.ManyToManyField(tags)
     post_date = models.DateTimeField(auto_now_add=True)
-    image_image = models.ImageField(upload_to = 'images/')
+    pictures_image = models.ImageField(upload_to = 'images/')
     category = models.ForeignKey('Category', null=True, blank=True,on_delete=models.CASCADE)
     
 
