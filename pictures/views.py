@@ -14,7 +14,6 @@ def todays_photo(request):
 
 # View Function to present photo from past days
 
-
 def search_results(request):
 
     if 'image' in request.GET and request.GET["image"]:
