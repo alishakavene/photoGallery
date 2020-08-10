@@ -10,7 +10,7 @@ def welcome(request):
 
 def todays_photo(request):
     photo = Image.todays_photo()
-    return render(request, 'photogallery/today-photos.html', { "photo":photo})
+    return render(request, 'photogallery/today-photos.html', {"photo":photo})
 
 # View Function to present photo from past days
 
