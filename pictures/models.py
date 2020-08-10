@@ -32,7 +32,7 @@ class Image(models.Model):
     @classmethod
     def todays_photo(cls):
         today = dt.date.today()
-        photo = cls.objects.order_by('-post_date')
+        photo = cls.objects.order_by('post_date')
         return photo
     @classmethod
     def days_photo(cls,date):
