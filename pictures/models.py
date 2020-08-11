@@ -4,7 +4,7 @@ import datetime as dt
 
 # Create your models here.
 class Name(models.Model):
-    image_name = models.CharField(max_length =40)
+    image_name = models.CharField(max_length=40)
 
     def __str__(self):
         return self.image_name
@@ -14,41 +14,50 @@ class Name(models.Model):
 
 
 class tags(models.Model):
-    name = models.CharField(max_length =40)
+    name = models.CharField(max_length=40)
 
     def __str__(self):
         return self.name
 
+
 class Image(models.Model):
-    title = models.CharField(max_length =60)
+    title = models.CharField(max_length=60)
     description = models.TextField()
-    name = models.ForeignKey(Name,on_delete=models.CASCADE)
+    name = models.ForeignKey(Name, on_delete=models.CASCADE)
     tags = models.ManyToManyField(tags)
     post_date = models.DateTimeField(auto_now_add=True)
-    pictures_image = models.ImageField(upload_to = 'images/')
-    category = models.ForeignKey('category',on_delete=models.CASCADE)
-    
+    pictures_image = models.ImageField(upload_to='images/')
+    category = models.ForeignKey('category', on_delete=models.CASCADE)
+
+    def save_image(self):
+        self.save()
+
+    def delete_image(self):
+        self.delete()
+
+    def update_image(self):
+        self.save()
 
     @classmethod
     def todays_photo(cls):
         today = dt.date.today()
         photo = cls.objects.order_by('post_date')
         return photo
+
     @classmethod
-    def days_photo(cls,date):
-        photo = cls.objects.filter(post_date__date = date)
+    def days_photo(cls, date):
+        photo = cls.objects.filter(post_date__date=date)
         return photo
 
-
     @classmethod
-    def search_by_title(cls,search_term):
+    def search_by_title(cls, search_term):
         news = cls.objects.filter(title__icontains=search_term)
         return news
 
     @classmethod
     def get_category_list(self):
-        k = self.category 
-        
+        k = self.category
+
         breadcrumb = ["dummy"]
         while k is not None:
             breadcrumb.append(k.slug)
@@ -57,29 +66,29 @@ class Image(models.Model):
             breadcrumb[i] = '/'.join(breadcrumb[-1:i-1:-1])
         return breadcrumb[-1:0:-1]
 
+
 class category(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField()
-    parent = models.ForeignKey('self',blank=True, null=True ,related_name='children',on_delete=models.CASCADE)
+    parent = models.ForeignKey(
+        'self', blank=True, null=True, related_name='children', on_delete=models.CASCADE)
 
     class Meta:
-       
-        unique_together = ('slug', 'parent',)    
-        verbose_name_plural = "categories"     
 
-    def __str__(self):                           
-        full_path = [self.name]                  
+        unique_together = ('slug', 'parent',)
+        verbose_name_plural = "categories"
+
+    def __str__(self):
+        full_path = [self.name]
         k = self.parent
         while k is not None:
             full_path.append(k.name)
             k = k.parent
         return ' -> '.join(full_path[::-1])
 
+
 class ModelAdmin(models.Model):
     ...
+
     class Clipboard:
-        js = ('clipboard.js',) 
-
-
-    
-    
+        js = ('clipboard.js',)
